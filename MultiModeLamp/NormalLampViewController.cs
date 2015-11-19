@@ -35,11 +35,11 @@ namespace MultiModeLamp
 		/// </summary>
 		void UpdateUi ()
 		{
-			if (this.torchDevice != null)
+			if (AppDelegate.Torch.HasTorchInstalled)
 			{
 				this.sliderBrightness.Enabled = true;
 				this.btnToggleLamp.Enabled = true;
-				if (this.torchDevice.TorchMode == AVCaptureTorchMode.On)
+				if (AppDelegate.Torch.IsEnabled)
 				{
 					this.btnToggleLamp.SetBackgroundImage(UIImage.FromBundle("on.png"), UIControlState.Normal);
 					this.imgViewLamp.Image = UIImage.FromBundle ("lamp.png");
@@ -93,12 +93,7 @@ namespace MultiModeLamp
 		/// <param name="sender">Sender.</param>
 		partial void HandleToggleLamp (UIButton sender)
 		{
-			if (this.torchDevice == null)
-			{
-				return;
-			}
-
-			SetTorchEnabled (this.torchDevice.TorchMode == AVCaptureTorchMode.Off ? true : false);
+			AppDelegate.Torch.SetTorchEnabled (!AppDelegate.Torch.IsEnabled);
 		}
 
 		partial void HandleDimScreenChanged (UISwitch sender)

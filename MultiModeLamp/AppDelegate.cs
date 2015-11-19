@@ -1,12 +1,29 @@
 ﻿using Foundation;
 using UIKit;
 using Xamarin;
+using System;
 
 namespace MultiModeLamp
 {
 	public class AppDelegate : UIApplicationDelegate
 	{
 		// class-level declarations
+		static Lazy<ITorch> torch = new Lazy<ITorch>(() => {
+			#if SIMULATOR
+			return new SimulatorTorch();
+			#else
+				return new FlashTorch();
+			#endif
+			}
+		);
+
+		public static ITorch Torch
+		{
+			get
+			{
+				return torch.Value;
+			}
+		}
 
 		public override UIWindow Window
 		{

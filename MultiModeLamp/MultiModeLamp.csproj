@@ -16,7 +16,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
-    <DefineConstants>DEBUG</DefineConstants>
+    <DefineConstants>DEBUG; SIMULATOR</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -33,6 +33,7 @@
     <MtouchLink>None</MtouchLink>
     <MtouchArch>i386</MtouchArch>
     <ConsolePause>false</ConsolePause>
+    <DefineConstants>SIMULATOR</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -107,6 +108,9 @@
     <Compile Include="MorseViewController.designer.cs">
       <DependentUpon>MorseViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="ITorch.cs" />
+    <Compile Include="FlashTorch.cs" />
+    <Compile Include="SimulatorTorch.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
