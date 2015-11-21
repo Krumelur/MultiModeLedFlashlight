@@ -12,14 +12,14 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="2" translatesAutoresizingMaskIntoConstraints="NO" image="bulb.png">
-                    <rect key="frame" x="91.5" y="91" width="297" height="298"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="2" translatesAutoresizingMaskIntoConstraints="NO" image="bulb.png">
+                    <rect key="frame" x="93.5" y="94" width="293" height="292"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="9" translatesAutoresizingMaskIntoConstraints="NO" image="csharx.png" misplaced="YES">
-                    <rect key="frame" x="262" y="428" width="218" height="52"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="9" translatesAutoresizingMaskIntoConstraints="NO" image="csharx.png">
+                    <rect key="frame" x="0.0" y="397" width="480" height="83"/>
+                    <color key="backgroundColor" colorSpace="calibratedRGB" red="0.984313725490196" green="0.984313725490196" blue="0.984313725490196" alpha="1"/>
                     <constraints>
-                        <constraint id="12" firstItem="9" firstAttribute="width" constant="218"/>
-                        <constraint id="13" firstItem="9" firstAttribute="height" constant="52"/>
+                        <constraint id="27" firstItem="9" firstAttribute="height" constant="83"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -31,6 +31,9 @@
             <constraints>
                 <constraint id="16" firstItem="2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX"/>
                 <constraint id="17" firstItem="2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY"/>
+                <constraint id="24" firstItem="9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading"/>
+                <constraint id="25" firstItem="9" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing"/>
+                <constraint id="26" firstItem="9" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom"/>
             </constraints>
         </view>
     </objects>
@@ -41,8 +44,13 @@
         <image name="on.png" width="295" height="295"/>
         <image name="background.png" width="1511" height="706"/>
         <image name="digital.ttf" width="0" height="0"/>
-        <image name="bulb.png" width="297" height="298"/>
+        <image name="bulb.png" width="293" height="292"/>
         <image name="csharx.png" width="500" height="132"/>
         <image name="MorseCode.ttf" width="0" height="0"/>
+        <image name="Image" width="90" height="90"/>
+        <image name="Lamp" width="90" height="90"/>
+        <image name="TabBarLamp" width="60" height="60"/>
+        <image name="TabBarMorse" width="60" height="60"/>
+        <image name="TabBarStrobe" width="90" height="90"/>
     </resources>
 </document>

@@ -111,6 +111,10 @@
     <Compile Include="ITorch.cs" />
     <Compile Include="FlashTorch.cs" />
     <Compile Include="SimulatorTorch.cs" />
+    <Compile Include="InfoController.cs" />
+    <Compile Include="InfoController.designer.cs">
+      <DependentUpon>InfoController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
@@ -124,6 +128,15 @@
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small.png" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small%402x.png" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\TabBarLamp.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\TabBarStrobe.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\TabBarMorse.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\TabBarLamp.imageset\Globe Bulb-90.png" />
+    <ImageAsset Include="Resources\Images.xcassets\TabBarLamp.imageset\Globe Bulb-60.png" />
+    <ImageAsset Include="Resources\Images.xcassets\TabBarMorse.imageset\SMS-90.png" />
+    <ImageAsset Include="Resources\Images.xcassets\TabBarMorse.imageset\SMS-60.png" />
+    <ImageAsset Include="Resources\Images.xcassets\TabBarStrobe.imageset\Lightning Bolt-60.png" />
+    <ImageAsset Include="Resources\Images.xcassets\TabBarStrobe.imageset\Lightning Bolt-90.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -149,8 +162,6 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="packages\Xamarin.Insights.1.11.2\build\Xamarin.iOS10\Xamarin.Insights.targets" Condition="Exists('packages\Xamarin.Insights.1.11.2\build\Xamarin.iOS10\Xamarin.Insights.targets')" />
   <ItemGroup>
-    <BundleResource Include="Resources\lamp.png" />
-    <BundleResource Include="Resources\lamp_off.png" />
     <BundleResource Include="Resources\off.png" />
     <BundleResource Include="Resources\on.png" />
     <BundleResource Include="Resources\background.png" />
@@ -158,6 +169,7 @@
     <BundleResource Include="Resources\bulb.png" />
     <BundleResource Include="Resources\csharx.png" />
     <BundleResource Include="Resources\MorseCode.ttf" />
+    <BundleResource Include="Resources\about.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images.xcassets\AppIcons.appiconset\" />

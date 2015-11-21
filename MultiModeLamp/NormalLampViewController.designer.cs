@@ -16,6 +16,10 @@ namespace MultiModeLamp
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton btnInfo { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton btnToggleLamp { get; set; }
 
 		[Outlet]
@@ -24,19 +28,15 @@ namespace MultiModeLamp
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UISlider sliderBrightness { get; set; }
+		UILabel lblLevel { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UISwitch switchDimScreen { get; set; }
+		UISlider sliderBrightness { get; set; }
 
 		[Action ("HandleBrightnessChanged:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void HandleBrightnessChanged (UISlider sender);
-
-		[Action ("HandleDimScreenChanged:")]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		partial void HandleDimScreenChanged (UISwitch sender);
 
 		[Action ("HandleToggleLamp:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -44,6 +44,10 @@ namespace MultiModeLamp
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (btnInfo != null) {
+				btnInfo.Dispose ();
+				btnInfo = null;
+			}
 			if (btnToggleLamp != null) {
 				btnToggleLamp.Dispose ();
 				btnToggleLamp = null;
@@ -52,13 +56,13 @@ namespace MultiModeLamp
 				imgViewLamp.Dispose ();
 				imgViewLamp = null;
 			}
+			if (lblLevel != null) {
+				lblLevel.Dispose ();
+				lblLevel = null;
+			}
 			if (sliderBrightness != null) {
 				sliderBrightness.Dispose ();
 				sliderBrightness = null;
-			}
-			if (switchDimScreen != null) {
-				switchDimScreen.Dispose ();
-				switchDimScreen = null;
 			}
 		}
 	}

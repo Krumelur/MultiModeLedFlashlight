@@ -28,11 +28,19 @@ namespace MultiModeLamp
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UISwitch switchRepeat { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextField txtMorse { get; set; }
 
 		[Action ("HandleMorseSpeedChanged:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void HandleMorseSpeedChanged (UISlider sender);
+
+		[Action ("HandleRepeatChanged:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void HandleRepeatChanged (UISwitch sender);
 
 		void ReleaseDesignerOutlets ()
 		{
@@ -47,6 +55,10 @@ namespace MultiModeLamp
 			if (sliderMorseSpeed != null) {
 				sliderMorseSpeed.Dispose ();
 				sliderMorseSpeed = null;
+			}
+			if (switchRepeat != null) {
+				switchRepeat.Dispose ();
+				switchRepeat = null;
 			}
 			if (txtMorse != null) {
 				txtMorse.Dispose ();

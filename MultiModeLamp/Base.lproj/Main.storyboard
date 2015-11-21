@@ -16,7 +16,6 @@
                     </tabBar>
                     <connections>
                         <segue id="415" destination="358" kind="relationship" relationship="viewControllers"/>
-                        <segue id="548" destination="508" kind="relationship" relationship="viewControllers"/>
                         <segue id="631" destination="585" kind="relationship" relationship="viewControllers"/>
                         <segue id="751" destination="707" kind="relationship" relationship="viewControllers"/>
                     </connections>
@@ -37,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedWhite" white="0" alpha="1"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="449" translatesAutoresizingMaskIntoConstraints="NO" image="lamp.png">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="449" translatesAutoresizingMaskIntoConstraints="NO" image="background.png" alpha="0.65">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="417" translatesAutoresizingMaskIntoConstraints="NO">
@@ -55,35 +54,38 @@
                                     <constraint id="561" firstItem="417" firstAttribute="height" constant="158"/>
                                 </constraints>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="422">
-                                <rect key="frame" x="531" y="511" width="51" height="31"/>
-                                <connections>
-                                    <action selector="HandleDimScreenChanged:" destination="358" id="470" eventType="valueChanged"/>
-                                </connections>
-                            </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Dim screen" lineBreakMode="tailTruncation" minimumFontSize="10" id="423" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="right">
-                                <rect key="frame" x="514" y="495.5" width="64" height="14.5"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="475" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="18" y="510" width="205" height="34"/>
+                                <rect key="frame" x="16" y="260" width="568" height="35"/>
                                 <connections>
                                     <action selector="HandleBrightnessChanged:" destination="358" id="480" eventType="valueChanged"/>
                                 </connections>
                                 <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 <constraints>
-                                    <constraint id="569" firstItem="475" firstAttribute="height" constant="33"/>
-                                    <constraint id="571" firstItem="475" firstAttribute="width" constant="166" relation="greaterThanOrEqual" priority="755"/>
+                                    <constraint id="812" firstItem="475" firstAttribute="height" constant="34"/>
                                 </constraints>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Brightness" lineBreakMode="tailTruncation" minimumFontSize="10" id="682" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="24" y="496.5" width="61" height="14.5"/>
+                                <rect key="frame" x="22" y="237.5" width="61" height="14.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" lineBreakMode="middleTruncation" id="898" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="562" y="520" width="22" height="22"/>
+                                <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue id="1147" destination="1040" kind="show"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="80%" lineBreakMode="tailTruncation" minimumFontSize="10" id="1015" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center">
+                                <rect key="frame" x="40" y="49" width="520" height="73"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Digitaldream" family="Digital dream" pointSize="70"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="1" green="0" blue="0" alpha="1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -94,25 +96,27 @@
                             <constraint id="459" firstItem="449" firstAttribute="top" secondItem="359" secondAttribute="top"/>
                             <constraint id="559" firstItem="417" firstAttribute="centerX" secondItem="449" secondAttribute="centerX"/>
                             <constraint id="562" firstItem="356" firstAttribute="top" secondItem="417" secondAttribute="bottom" constant="40"/>
-                            <constraint id="567" firstItem="475" firstAttribute="leading" secondItem="449" secondAttribute="leading" constant="20"/>
-                            <constraint id="570" firstItem="417" firstAttribute="leading" secondItem="475" secondAttribute="trailing" constant="1"/>
-                            <constraint id="572" firstItem="449" firstAttribute="trailing" secondItem="422" secondAttribute="trailing" constant="20"/>
-                            <constraint id="573" firstItem="356" firstAttribute="top" secondItem="422" secondAttribute="bottom" constant="9"/>
-                            <constraint id="685" firstItem="422" firstAttribute="top" secondItem="423" secondAttribute="bottom" constant="1"/>
-                            <constraint id="686" firstItem="422" firstAttribute="trailing" secondItem="423" secondAttribute="trailing" constant="2"/>
-                            <constraint id="687" firstItem="682" firstAttribute="leading" secondItem="475" secondAttribute="leading" constant="4"/>
-                            <constraint id="688" firstItem="682" firstAttribute="centerY" secondItem="423" secondAttribute="centerY" constant="1"/>
-                            <constraint id="689" firstItem="475" firstAttribute="centerY" secondItem="422" secondAttribute="centerY"/>
+                            <constraint id="810" firstItem="449" firstAttribute="trailing" secondItem="475" secondAttribute="trailing" constant="18"/>
+                            <constraint id="811" firstItem="475" firstAttribute="leading" secondItem="449" secondAttribute="leading" constant="18"/>
+                            <constraint id="813" firstItem="682" firstAttribute="leading" secondItem="475" secondAttribute="leading" constant="4"/>
+                            <constraint id="814" firstItem="475" firstAttribute="top" secondItem="682" secondAttribute="bottom" constant="8"/>
+                            <constraint id="895" firstItem="417" firstAttribute="top" secondItem="475" secondAttribute="bottom" constant="59"/>
+                            <constraint id="923" firstItem="449" firstAttribute="trailing" secondItem="898" secondAttribute="trailing" constant="16"/>
+                            <constraint id="1002" firstItem="449" firstAttribute="bottom" secondItem="898" secondAttribute="bottom" constant="9"/>
+                            <constraint id="1016" firstItem="1015" firstAttribute="top" secondItem="355" secondAttribute="bottom" constant="29"/>
+                            <constraint id="1017" firstItem="1015" firstAttribute="leading" secondItem="449" secondAttribute="leading" constant="40"/>
+                            <constraint id="1018" firstItem="449" firstAttribute="trailing" secondItem="1015" secondAttribute="trailing" constant="40"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Normal Lamp" id="414"/>
+                    <tabBarItem key="tabBarItem" title="Normal Lamp" id="414" image="TabBarLamp"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="btnToggleLamp" destination="417" id="name-outlet-417"/>
-                        <outlet property="switchDimScreen" destination="422" id="name-outlet-422"/>
                         <outlet property="imgViewLamp" destination="449" id="name-outlet-449"/>
                         <outlet property="sliderBrightness" destination="475" id="name-outlet-475"/>
+                        <outlet property="btnInfo" destination="898" id="name-outlet-898"/>
+                        <outlet property="lblLevel" destination="1015" id="name-outlet-1015"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="360" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,31 +125,56 @@
         </scene>
         <scene sceneID="507">
             <objects>
-                <viewController id="508" sceneMemberID="viewController">
+                <viewController id="508" sceneMemberID="viewController" customClass="InfoController" modalPresentationStyle="currentContext">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="505"/>
                         <viewControllerLayoutGuide type="bottom" id="506"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="509">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" customColorSpace="calibratedWhite" cocoaTouchSystemColor="darkTextColor"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Thanks to http://clker.com for beautiful free graphics." lineBreakMode="tailTruncation" minimumFontSize="10" id="550" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="51" y="74" width="433" height="21"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="1156" translatesAutoresizingMaskIntoConstraints="NO" image="csharx.png">
+                                <rect key="frame" x="0.0" y="404" width="600" height="132"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.984313725490196" green="0.984313725490196" blue="0.984313725490196" alpha="1"/>
+                            </imageView>
+                            <webView contentMode="scaleToFill" id="1164" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="404"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES" phoneNumber="YES"/>
+                            </webView>
                         </subviews>
+                        <constraints>
+                            <constraint id="1167" firstItem="1156" firstAttribute="leading" secondItem="509" secondAttribute="leading"/>
+                            <constraint id="1168" firstItem="1156" firstAttribute="trailing" secondItem="509" secondAttribute="trailing"/>
+                            <constraint id="1169" firstItem="1156" firstAttribute="bottom" secondItem="509" secondAttribute="bottom"/>
+                            <constraint id="1170" firstItem="1164" firstAttribute="top" secondItem="509" secondAttribute="top"/>
+                            <constraint id="1171" firstItem="1164" firstAttribute="leading" secondItem="509" secondAttribute="leading"/>
+                            <constraint id="1172" firstItem="1164" firstAttribute="leading" secondItem="509" secondAttribute="leading"/>
+                            <constraint id="1173" firstItem="1164" firstAttribute="trailing" secondItem="509" secondAttribute="trailing"/>
+                            <constraint id="1174" firstItem="1164" firstAttribute="bottom" secondItem="1156" secondAttribute="top"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" id="547"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="webView" destination="1164" id="name-outlet-1164"/>
+                    </connections>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem title="MultiMode LED" id="1098" key="navigationItem">
+                        <barButtonItem id="1149" translatesAutoresizingMaskIntoConstraints="NO" key="rightBarButtonItem" systemItem="done">
+                            <connections>
+                                <segue id="1152" destination="806" kind="unwind" unwindAction="UnwindToNormalLampViewController:"/>
+                            </connections>
+                            <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="510" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="806" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-894" y="1069"/>
+            <point key="canvasLocation" x="1426" y="28"/>
         </scene>
         <scene sceneID="584">
             <objects>
@@ -163,21 +192,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" id="638" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" text="100">
-                                <rect key="frame" x="91" y="49" width="418" height="135"/>
+                                <rect key="frame" x="91" y="49" width="418" height="107"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Digitaldream" family="Digital dream" pointSize="70"/>
                                 <color key="textColor" colorSpace="calibratedRGB" red="0.984313725490196" green="0.047058823529411764" blue="0.12941176470588237" alpha="1"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="flashes per second" lineBreakMode="tailTruncation" minimumFontSize="10" id="639" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" misplaced="YES">
-                                <rect key="frame" x="20" y="150" width="560" height="20.5"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="flashes per second" lineBreakMode="tailTruncation" minimumFontSize="10" id="639" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center">
+                                <rect key="frame" x="20" y="137" width="560" height="20.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="640" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="222" y="354" width="156" height="158"/>
+                                <rect key="frame" x="222" y="353" width="156" height="158"/>
                                 <state key="normal" backgroundImage="off.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -188,7 +217,7 @@
                                 </constraints>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="641" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="18" y="260" width="564" height="32"/>
+                                <rect key="frame" x="16" y="263" width="568" height="32"/>
                                 <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 <connections>
                                     <action selector="HandleStrobeSliderChanged:" destination="585" id="644" eventType="valueChanged"/>
@@ -198,7 +227,7 @@
                                 </constraints>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Adjust speed" lineBreakMode="tailTruncation" minimumFontSize="10" id="678" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="20" y="237.5" width="74" height="14.5"/>
+                                <rect key="frame" x="18" y="240.5" width="74" height="14.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -210,22 +239,22 @@
                             <constraint id="635" firstItem="633" firstAttribute="trailing" secondItem="586" secondAttribute="trailing"/>
                             <constraint id="636" firstItem="633" firstAttribute="bottom" secondItem="583" secondAttribute="top"/>
                             <constraint id="637" firstItem="633" firstAttribute="leading" secondItem="586" secondAttribute="leading"/>
-                            <constraint id="651" firstItem="633" firstAttribute="trailing" secondItem="641" secondAttribute="trailing" constant="20"/>
-                            <constraint id="652" firstItem="641" firstAttribute="leading" secondItem="633" secondAttribute="leading" constant="20"/>
-                            <constraint id="654" firstItem="583" firstAttribute="top" secondItem="640" secondAttribute="bottom" constant="39"/>
+                            <constraint id="651" firstItem="633" firstAttribute="trailing" secondItem="641" secondAttribute="trailing" constant="18"/>
+                            <constraint id="652" firstItem="641" firstAttribute="leading" secondItem="633" secondAttribute="leading" constant="18"/>
+                            <constraint id="654" firstItem="583" firstAttribute="top" secondItem="640" secondAttribute="bottom" constant="40"/>
                             <constraint id="657" firstItem="640" firstAttribute="centerX" secondItem="633" secondAttribute="centerX"/>
-                            <constraint id="658" firstItem="640" firstAttribute="top" secondItem="641" secondAttribute="bottom" constant="63"/>
                             <constraint id="663" firstItem="633" firstAttribute="trailing" secondItem="638" secondAttribute="trailing" constant="91"/>
                             <constraint id="664" firstItem="638" firstAttribute="leading" secondItem="633" secondAttribute="leading" constant="91"/>
                             <constraint id="665" firstItem="638" firstAttribute="top" secondItem="582" secondAttribute="bottom" constant="29"/>
                             <constraint id="668" firstItem="633" firstAttribute="trailing" secondItem="639" secondAttribute="trailing" constant="20"/>
                             <constraint id="669" firstItem="639" firstAttribute="leading" secondItem="633" secondAttribute="leading" constant="20"/>
-                            <constraint id="671" firstItem="639" firstAttribute="top" secondItem="638" secondAttribute="bottom" constant="11"/>
                             <constraint id="690" firstItem="678" firstAttribute="leading" secondItem="641" secondAttribute="leading"/>
                             <constraint id="691" firstItem="641" firstAttribute="top" secondItem="678" secondAttribute="bottom" constant="8"/>
+                            <constraint id="894" firstItem="640" firstAttribute="top" secondItem="641" secondAttribute="bottom" constant="59"/>
+                            <constraint id="1014" firstItem="639" firstAttribute="top" secondItem="638" secondAttribute="bottom" constant="15"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Strobe" id="630"/>
+                    <tabBarItem key="tabBarItem" title="Strobe" id="630" image="TabBarStrobe"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="btnToggleStrobe" destination="640" id="name-outlet-640"/>
@@ -253,7 +282,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="552"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="754" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="222" y="355" width="156" height="158"/>
+                                <rect key="frame" x="222" y="353" width="156" height="158"/>
                                 <state key="normal" backgroundImage="off.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -278,14 +307,27 @@
                                 </constraints>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="764" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="16" y="261" width="568" height="31"/>
+                                <rect key="frame" x="16" y="264" width="568" height="31"/>
                                 <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 <connections>
                                     <action selector="HandleMorseSpeedChanged:" destination="707" id="801" eventType="valueChanged"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Adjust speed" lineBreakMode="tailTruncation" minimumFontSize="10" id="765" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="22" y="237.5" width="74" height="14.5"/>
+                                <rect key="frame" x="22" y="240.5" width="74" height="14.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="881">
+                                <rect key="frame" x="24" y="352.5" width="51" height="31"/>
+                                <connections>
+                                    <action selector="HandleRepeatChanged:" destination="707" id="887" eventType="valueChanged"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Repeat" lineBreakMode="tailTruncation" minimumFontSize="10" id="882" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="22" y="323" width="40" height="14.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -293,7 +335,7 @@
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint id="774" firstItem="705" firstAttribute="top" secondItem="754" secondAttribute="bottom" constant="38"/>
+                            <constraint id="774" firstItem="705" firstAttribute="top" secondItem="754" secondAttribute="bottom" constant="40"/>
                             <constraint id="775" firstItem="754" firstAttribute="centerX" secondItem="753" secondAttribute="centerX"/>
                             <constraint id="776" firstItem="753" firstAttribute="top" secondItem="708" secondAttribute="top"/>
                             <constraint id="777" firstItem="753" firstAttribute="bottom" secondItem="705" secondAttribute="top" constant="2"/>
@@ -302,33 +344,53 @@
                             <constraint id="780" firstItem="764" firstAttribute="leading" secondItem="753" secondAttribute="leading" constant="18"/>
                             <constraint id="781" firstItem="753" firstAttribute="trailing" secondItem="764" secondAttribute="trailing" constant="18"/>
                             <constraint id="782" firstItem="764" firstAttribute="centerX" secondItem="753" secondAttribute="centerX"/>
-                            <constraint id="783" firstItem="754" firstAttribute="top" secondItem="764" secondAttribute="bottom" constant="64"/>
+                            <constraint id="783" firstItem="754" firstAttribute="top" secondItem="764" secondAttribute="bottom" constant="59"/>
                             <constraint id="784" firstItem="765" firstAttribute="leading" secondItem="764" secondAttribute="leading" constant="4"/>
                             <constraint id="785" firstItem="764" firstAttribute="top" secondItem="765" secondAttribute="bottom" constant="9"/>
                             <constraint id="786" firstItem="756" firstAttribute="top" secondItem="704" secondAttribute="bottom" constant="29"/>
                             <constraint id="787" firstItem="753" firstAttribute="trailing" secondItem="756" secondAttribute="trailing" constant="91"/>
                             <constraint id="788" firstItem="756" firstAttribute="leading" secondItem="753" secondAttribute="leading" constant="91"/>
-                            <constraint id="790" firstItem="755" firstAttribute="top" secondItem="756" secondAttribute="bottom" constant="22"/>
                             <constraint id="791" firstItem="755" firstAttribute="centerX" secondItem="753" secondAttribute="centerX"/>
                             <constraint id="792" firstItem="753" firstAttribute="trailing" secondItem="755" secondAttribute="trailing" constant="20"/>
                             <constraint id="793" firstItem="755" firstAttribute="leading" secondItem="753" secondAttribute="leading" constant="20"/>
+                            <constraint id="883" firstItem="882" firstAttribute="leading" secondItem="764" secondAttribute="leading" constant="4"/>
+                            <constraint id="884" firstItem="882" firstAttribute="top" secondItem="764" secondAttribute="bottom" constant="29"/>
+                            <constraint id="885" firstItem="881" firstAttribute="leading" secondItem="764" secondAttribute="leading" constant="6"/>
+                            <constraint id="886" firstItem="881" firstAttribute="top" secondItem="882" secondAttribute="bottom" constant="15"/>
+                            <constraint id="929" firstItem="765" firstAttribute="top" secondItem="755" secondAttribute="bottom" constant="30"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Morse" id="750"/>
+                    <tabBarItem key="tabBarItem" title="Morse" id="750" image="TabBarMorse"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="btnToggleMorse" destination="754" id="name-outlet-754"/>
                         <outlet property="sliderMorseSpeed" destination="764" id="name-outlet-764"/>
                         <outlet property="txtMorse" destination="755" id="name-outlet-755"/>
                         <outlet property="lblCurrentMorseChar" destination="756" id="name-outlet-756"/>
+                        <outlet property="switchRepeat" destination="881" id="name-outlet-881"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="709" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="55" y="1446"/>
         </scene>
+        <scene sceneID="1039">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="1040" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1043" barStyle="black">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                    </navigationBar>
+                    <connections>
+                        <segue id="1099" destination="508" kind="relationship" relationship="rootViewController"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1044" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="739" y="10"/>
+        </scene>
     </scenes>
-    <color key="tintColor" colorSpace="calibratedWhite" white="0" alpha="1"/>
+    <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
     <resources>
         <image name="light-bulb.png" width="1600" height="1200"/>
         <image name="light.png" width="1600" height="853"/>
@@ -338,8 +400,13 @@
         <image name="on.png" width="295" height="295"/>
         <image name="background.png" width="1511" height="706"/>
         <image name="digital.ttf" width="0" height="0"/>
-        <image name="bulb.png" width="297" height="298"/>
+        <image name="bulb.png" width="293" height="292"/>
         <image name="csharx.png" width="500" height="132"/>
         <image name="MorseCode.ttf" width="0" height="0"/>
+        <image name="Image" width="90" height="90"/>
+        <image name="Lamp" width="90" height="90"/>
+        <image name="TabBarLamp" width="60" height="60"/>
+        <image name="TabBarMorse" width="60" height="60"/>
+        <image name="TabBarStrobe" width="90" height="90"/>
     </resources>
 </document>

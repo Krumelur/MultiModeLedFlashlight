@@ -14,5 +14,16 @@ namespace MultiModeLamp
 	[Register ("InfoController")]
 	partial class InfoController
 	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIWebView webView { get; set; }
+
+		void ReleaseDesignerOutlets ()
+		{
+			if (webView != null) {
+				webView.Dispose ();
+				webView = null;
+			}
+		}
 	}
 }

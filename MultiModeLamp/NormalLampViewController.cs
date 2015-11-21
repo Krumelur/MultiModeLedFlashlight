@@ -11,23 +11,28 @@ namespace MultiModeLamp
 {
 	partial class NormalLampViewController : BaseViewController
 	{
-		const string SETTING_DIM_SCREEN = "DimScreen";
 		const string SETTING_BRIGHTNESS = "Brightness";
 
 		public NormalLampViewController (IntPtr handle) : base (handle)
 		{
 		}
 
+		[Action ("UnwindToNormalLampViewController:")]
+		public void UnwindToNormalLampViewController (UIStoryboardSegue segue)
+		{
+			// Nothing in here...this is wired up in the iOS designer to exit from the modal info controller.
+		}
+
 		public override void ViewDidAppear (bool animated)
 		{
 			base.ViewDidAppear (animated);
-			this.UpdateUi();
+			this.UpdateUi ();
 		}
 
 		public override void ViewWillDisappear (bool animated)
 		{
 			base.ViewWillDisappear (animated);
-			this.SetTorchEnabled(false);
+			this.SetTorchEnabled (false);
 		}
 
 		/// <summary>
@@ -41,35 +46,25 @@ namespace MultiModeLamp
 				this.btnToggleLamp.Enabled = true;
 				if (AppDelegate.Torch.IsEnabled)
 				{
-					this.btnToggleLamp.SetBackgroundImage(UIImage.FromBundle("on.png"), UIControlState.Normal);
-					this.imgViewLamp.Image = UIImage.FromBundle ("lamp.png");
+					this.btnToggleLamp.SetBackgroundImage (UIImage.FromBundle ("on.png"), UIControlState.Normal);
+					//this.imgViewLamp.Image = UIImage.FromBundle ("lamp.png");
 				}
 				else
 				{
-					this.btnToggleLamp.SetBackgroundImage(UIImage.FromBundle("off.png"), UIControlState.Normal);
-					this.imgViewLamp.Image = UIImage.FromBundle ("lamp_off.png");
+					this.btnToggleLamp.SetBackgroundImage (UIImage.FromBundle ("off.png"), UIControlState.Normal);
+					//this.imgViewLamp.Image = UIImage.FromBundle ("lamp_off.png");
 				}
 
-				float brightness = CrossSettings.Current.GetValueOrDefault(SETTING_BRIGHTNESS, 1f);
+				float brightness = CrossSettings.Current.GetValueOrDefault (SETTING_BRIGHTNESS, 1f);
 				this.sliderBrightness.SetValue (brightness, true);
+				this.UpdateBrightnesLevelText (brightness);
 			}
 			else
 			{
 				this.sliderBrightness.Enabled = false;
 				this.btnToggleLamp.Enabled = false;
-				this.imgViewLamp.Image = UIImage.FromBundle ("lamp_off.png");
-			}
-
-			this.switchDimScreen.On = CrossSettings.Current.GetValueOrDefault (SETTING_DIM_SCREEN, true);
-
-			// If the switch to dim the screen is on, fade out the background image to reduce brightness of UI.
-			if (this.switchDimScreen.On)
-			{
-				UIView.Animate (0.5f, () => this.imgViewLamp.Alpha = 0.26f);
-			}
-			else
-			{
-				UIView.Animate (0.5f, () => this.imgViewLamp.Alpha = 1f);
+				this.UpdateBrightnesLevelText (0f);
+				//this.imgViewLamp.Image = UIImage.FromBundle ("lamp_off.png");
 			}
 		}
 
@@ -81,8 +76,8 @@ namespace MultiModeLamp
 		{
 			base.SetTorchEnabled (on);
 
-			float brightness = CrossSettings.Current.GetValueOrDefault(SETTING_BRIGHTNESS, 1f);
-			this.SetTorchBrightness(brightness);
+			float brightness = CrossSettings.Current.GetValueOrDefault (SETTING_BRIGHTNESS, 1f);
+			this.SetTorchBrightness (brightness);
 
 			this.UpdateUi ();
 		}
@@ -94,13 +89,9 @@ namespace MultiModeLamp
 		partial void HandleToggleLamp (UIButton sender)
 		{
 			AppDelegate.Torch.SetTorchEnabled (!AppDelegate.Torch.IsEnabled);
+			this.UpdateUi ();
 		}
 
-		partial void HandleDimScreenChanged (UISwitch sender)
-		{
-			CrossSettings.Current.AddOrUpdateValue (SETTING_DIM_SCREEN, sender.On);
-			this.UpdateUi();
-		}
 
 		/// <summary>
 		/// Gets called if the slider to adjust the brightness has been moved.
@@ -109,7 +100,19 @@ namespace MultiModeLamp
 		partial void HandleBrightnessChanged (UISlider sender)
 		{
 			CrossSettings.Current.AddOrUpdateValue (SETTING_BRIGHTNESS, sender.Value);
-			this.SetTorchBrightness(sender.Value);
+			this.SetTorchBrightness (sender.Value);
+
+			this.UpdateBrightnesLevelText(sender.Value);
+		}
+
+		void UpdateBrightnesLevelText(float level)
+		{
+			int roundedLevel = ((int)(Math.Round (level * 10) * 10));
+			if (roundedLevel < 10)
+			{
+				roundedLevel = 10;
+			}
+			this.lblLevel.Text = $"{roundedLevel}%";
 		}
 	}
 }
