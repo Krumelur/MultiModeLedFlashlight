@@ -94,27 +94,26 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
-    <Compile Include="NormalLampViewController.cs" />
-    <Compile Include="NormalLampViewController.designer.cs">
-      <DependentUpon>NormalLampViewController.cs</DependentUpon>
-    </Compile>
     <None Include="packages.config" />
-    <None Include="PluginsHelp\SettingsReadme.txt" />
-    <Compile Include="BaseViewController.cs" />
-    <Compile Include="StrobeViewController.cs" />
-    <Compile Include="StrobeViewController.designer.cs">
-      <DependentUpon>StrobeViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MorseViewController.cs" />
-    <Compile Include="MorseViewController.designer.cs">
-      <DependentUpon>MorseViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="ITorch.cs" />
     <Compile Include="FlashTorch.cs" />
     <Compile Include="SimulatorTorch.cs" />
-    <Compile Include="InfoController.cs" />
-    <Compile Include="InfoController.designer.cs">
+    <Compile Include="UI\BaseViewController.cs" />
+    <Compile Include="UI\InfoController.cs" />
+    <Compile Include="UI\InfoController.designer.cs">
       <DependentUpon>InfoController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MorseViewController.cs" />
+    <Compile Include="UI\MorseViewController.designer.cs">
+      <DependentUpon>MorseViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NormalLampViewController.cs" />
+    <Compile Include="UI\NormalLampViewController.designer.cs">
+      <DependentUpon>NormalLampViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\StrobeViewController.cs" />
+    <Compile Include="UI\StrobeViewController.designer.cs">
+      <DependentUpon>StrobeViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -141,7 +140,6 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
     <Reference Include="Refractored.Xam.Settings">
@@ -174,5 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images.xcassets\AppIcons.appiconset\" />
+    <Folder Include="UI\" />
   </ItemGroup>
 </Project>

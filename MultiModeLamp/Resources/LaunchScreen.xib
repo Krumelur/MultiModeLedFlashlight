@@ -12,28 +12,20 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="2" translatesAutoresizingMaskIntoConstraints="NO" image="bulb.png">
-                    <rect key="frame" x="93.5" y="94" width="293" height="292"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="9" translatesAutoresizingMaskIntoConstraints="NO" image="csharx.png">
-                    <rect key="frame" x="0.0" y="397" width="480" height="83"/>
-                    <color key="backgroundColor" colorSpace="calibratedRGB" red="0.984313725490196" green="0.984313725490196" blue="0.984313725490196" alpha="1"/>
-                    <constraints>
-                        <constraint id="27" firstItem="9" firstAttribute="height" constant="83"/>
-                    </constraints>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="22" translatesAutoresizingMaskIntoConstraints="NO" image="bulb.png">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
             </subviews>
             <animations/>
             <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0.18823529411764706" green="0.18823529411764706" blue="0.18823529411764706" alpha="1"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="548" y="455"/>
+            <point key="canvasLocation" x="474" y="252"/>
             <constraints>
-                <constraint id="16" firstItem="2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX"/>
-                <constraint id="17" firstItem="2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY"/>
-                <constraint id="24" firstItem="9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading"/>
-                <constraint id="25" firstItem="9" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing"/>
-                <constraint id="26" firstItem="9" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom"/>
+                <constraint id="24" firstItem="22" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom"/>
+                <constraint id="25" firstItem="22" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing"/>
+                <constraint id="26" firstItem="22" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading"/>
+                <constraint id="29" firstItem="22" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top"/>
             </constraints>
         </view>
     </objects>
@@ -44,7 +36,7 @@
         <image name="on.png" width="295" height="295"/>
         <image name="background.png" width="1511" height="706"/>
         <image name="digital.ttf" width="0" height="0"/>
-        <image name="bulb.png" width="293" height="292"/>
+        <image name="bulb.png" width="1024" height="1024"/>
         <image name="csharx.png" width="500" height="132"/>
         <image name="MorseCode.ttf" width="0" height="0"/>
         <image name="Image" width="90" height="90"/>

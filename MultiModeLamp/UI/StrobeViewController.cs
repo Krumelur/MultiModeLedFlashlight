@@ -1,14 +1,15 @@
-using Foundation;
 using System;
-using System.CodeDom.Compiler;
 using UIKit;
-using AVFoundation;
 using Refractored.Xam.Settings;
 using System.Threading.Tasks;
 using System.Threading;
+using Xamarin;
 
 namespace MultiModeLamp
 {
+	/// <summary>
+	/// Strobe view controller.
+	/// </summary>
 	partial class StrobeViewController : BaseViewController
 	{
 		const string SETTING_STROBE_FPS = "StrobeSpeed";
@@ -21,6 +22,17 @@ namespace MultiModeLamp
 		CancellationTokenSource cts;
 		TimeSpan delay;
 
+		protected override void AppEnteredBackground ()
+		{
+			this.cts?.Cancel ();
+			base.AppEnteredBackground ();
+			this.UpdateUi (false);
+		}
+
+		/// <summary>
+		/// Updates the user interface.
+		/// </summary>
+		/// <param name="updateSlider">If set to <c>true</c> update slider.</param>
 		void UpdateUi(bool updateSlider)
 		{
 			if(updateSlider)
@@ -54,6 +66,7 @@ namespace MultiModeLamp
 
 		public override void ViewDidAppear (bool animated)
 		{
+			Insights.Track ("Show strobe screen");
 			base.ViewDidAppear (animated);
 			this.UpdateUi(updateSlider: true);
 		}
@@ -68,17 +81,24 @@ namespace MultiModeLamp
 		/// Flashes the lamp.
 		/// </summary>
 		/// <param name="token">Token.</param>
-		async Task Flash (CancellationToken token)
+		async Task FlashAsync (CancellationToken token)
 		{
+			try
+			{
 			await Task.Run(async () => {
 				while(!token.IsCancellationRequested)
 				{
 					this.SetTorchEnabled(true);
-					await Task.Delay(this.delay);
+					await Task.Delay(this.delay, token);
 					this.SetTorchEnabled(false);
-					await Task.Delay(this.delay);
+					await Task.Delay(this.delay, token);
 				}	
-			});
+			}, token);
+			}
+			catch(OperationCanceledException)
+			{
+				// Expected when passing a token to Task.Delay().
+			}
 			this.SetTorchEnabled(false);
 		}
 
@@ -91,13 +111,15 @@ namespace MultiModeLamp
 		{
 			if(this.cts != null)
 			{
+				Insights.Track ("Stopping strobe");
 				this.cts.Cancel();
 			}
 			else
 			{
+				Insights.Track ("Starting strobe");
 				this.cts = new CancellationTokenSource();
 				this.UpdateUi(updateSlider: true);
-				await this.Flash(this.cts.Token);
+				await this.FlashAsync(this.cts.Token);
 				this.cts = null;
 				this.UpdateUi(updateSlider: true);
 			}

@@ -20,6 +20,10 @@ namespace MultiModeLamp
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel lblCurrentClearTextChar { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel lblCurrentMorseChar { get; set; }
 
 		[Outlet]
@@ -47,6 +51,10 @@ namespace MultiModeLamp
 			if (btnToggleMorse != null) {
 				btnToggleMorse.Dispose ();
 				btnToggleMorse = null;
+			}
+			if (lblCurrentClearTextChar != null) {
+				lblCurrentClearTextChar.Dispose ();
+				lblCurrentClearTextChar = null;
 			}
 			if (lblCurrentMorseChar != null) {
 				lblCurrentMorseChar.Dispose ();

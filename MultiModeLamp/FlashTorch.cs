@@ -6,19 +6,23 @@ using Xamarin;
 
 namespace MultiModeLamp
 {
+	/// <summary>
+	/// Gets access to the device's flash/torch.
+	/// </summary>
 	public class FlashTorch : ITorch
 	{
+		// Reference to the capture device with flash support.
 		readonly AVCaptureDevice torchDevice;
 
 		public FlashTorch ()
 		{
+			// Check if there are any devices with torch support.
 			this.torchDevice = AVCaptureDevice.DevicesWithMediaType (AVMediaType.Video)?.FirstOrDefault (d => d.HasTorch);		
 		}
 
 		public bool HasTorchInstalled
 		{
-			get
-			{
+			get {
 				return this.torchDevice != null;
 			}
 		}
@@ -32,16 +36,16 @@ namespace MultiModeLamp
 
 			// Setting brightness turns the lamp on - I don't want this behavior here. I want the brightness to act only if the lamp is on and use the current
 			// brightness level as the initial value.
-			if(this.torchDevice.TorchMode == AVCaptureTorchMode.Off)
+			if (this.torchDevice.TorchMode == AVCaptureTorchMode.Off)
 			{
 				return true;
 			}
 
-			if(level < 0.1f)
+			if (level < 0.1f)
 			{
 				level = 0.1f;
 			}
-			if(level > 1f)
+			if (level > 1f)
 			{
 				level = 1f;
 			}
@@ -51,6 +55,7 @@ namespace MultiModeLamp
 			// Set brightness.
 			try
 			{
+				// Must always lock the device exclusively.
 				bool success = this.torchDevice.LockForConfiguration (out error);
 				if (!success || error != null)
 				{
@@ -63,7 +68,7 @@ namespace MultiModeLamp
 					Insights.Report (new InvalidOperationException (error?.Description), Insights.Severity.Error);
 				}
 
-				this.torchDevice.UnlockForConfiguration();
+				this.torchDevice.UnlockForConfiguration ();
 
 				return success;
 			}

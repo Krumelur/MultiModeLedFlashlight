@@ -38,6 +38,14 @@ namespace MultiModeLamp
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void HandleBrightnessChanged (UISlider sender);
 
+		[Action ("HandleSliderTouched:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void HandleSliderTouched (UISlider sender);
+
+		[Action ("HandleSliderTouchEnded:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void HandleSliderTouchEnded (UISlider sender);
+
 		[Action ("HandleToggleLamp:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void HandleToggleLamp (UIButton sender);

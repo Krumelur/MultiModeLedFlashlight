@@ -40,7 +40,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="417" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="222" y="353" width="156" height="158"/>
+                                <rect key="frame" x="222" y="373" width="156" height="158"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
                                 <state key="normal" backgroundImage="off.png">
@@ -55,9 +55,13 @@
                                 </constraints>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="475" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="16" y="260" width="568" height="35"/>
+                                <rect key="frame" x="16" y="299" width="568" height="35"/>
                                 <connections>
                                     <action selector="HandleBrightnessChanged:" destination="358" id="480" eventType="valueChanged"/>
+                                    <action selector="HandleSliderTouched:" destination="358" id="1200" eventType="touchDown"/>
+                                    <action selector="HandleSliderTouchEnded:" destination="358" id="1203" eventType="touchUpInside"/>
+                                    <action selector="HandleSliderTouchEnded:" destination="358" id="1204" eventType="touchUpOutside"/>
+                                    <action selector="HandleSliderTouchEnded:" destination="358" id="1205" eventType="touchCancel"/>
                                 </connections>
                                 <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 <constraints>
@@ -65,7 +69,7 @@
                                 </constraints>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Brightness" lineBreakMode="tailTruncation" minimumFontSize="10" id="682" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="22" y="237.5" width="61" height="14.5"/>
+                                <rect key="frame" x="22" y="276.5" width="61" height="14.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -95,12 +99,12 @@
                             <constraint id="458" firstItem="449" firstAttribute="leading" secondItem="359" secondAttribute="leading"/>
                             <constraint id="459" firstItem="449" firstAttribute="top" secondItem="359" secondAttribute="top"/>
                             <constraint id="559" firstItem="417" firstAttribute="centerX" secondItem="449" secondAttribute="centerX"/>
-                            <constraint id="562" firstItem="356" firstAttribute="top" secondItem="417" secondAttribute="bottom" constant="40"/>
+                            <constraint id="562" firstItem="356" firstAttribute="top" secondItem="417" secondAttribute="bottom" constant="20"/>
                             <constraint id="810" firstItem="449" firstAttribute="trailing" secondItem="475" secondAttribute="trailing" constant="18"/>
                             <constraint id="811" firstItem="475" firstAttribute="leading" secondItem="449" secondAttribute="leading" constant="18"/>
                             <constraint id="813" firstItem="682" firstAttribute="leading" secondItem="475" secondAttribute="leading" constant="4"/>
                             <constraint id="814" firstItem="475" firstAttribute="top" secondItem="682" secondAttribute="bottom" constant="8"/>
-                            <constraint id="895" firstItem="417" firstAttribute="top" secondItem="475" secondAttribute="bottom" constant="59"/>
+                            <constraint id="895" firstItem="417" firstAttribute="top" secondItem="475" secondAttribute="bottom" constant="40"/>
                             <constraint id="923" firstItem="449" firstAttribute="trailing" secondItem="898" secondAttribute="trailing" constant="16"/>
                             <constraint id="1002" firstItem="449" firstAttribute="bottom" secondItem="898" secondAttribute="bottom" constant="9"/>
                             <constraint id="1016" firstItem="1015" firstAttribute="top" secondItem="355" secondAttribute="bottom" constant="29"/>
@@ -206,7 +210,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="640" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="222" y="353" width="156" height="158"/>
+                                <rect key="frame" x="222" y="373" width="156" height="158"/>
                                 <state key="normal" backgroundImage="off.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -217,7 +221,7 @@
                                 </constraints>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="641" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="16" y="263" width="568" height="32"/>
+                                <rect key="frame" x="16" y="302" width="568" height="32"/>
                                 <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 <connections>
                                     <action selector="HandleStrobeSliderChanged:" destination="585" id="644" eventType="valueChanged"/>
@@ -227,7 +231,7 @@
                                 </constraints>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Adjust speed" lineBreakMode="tailTruncation" minimumFontSize="10" id="678" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="18" y="240.5" width="74" height="14.5"/>
+                                <rect key="frame" x="18" y="279.5" width="74" height="14.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -241,7 +245,7 @@
                             <constraint id="637" firstItem="633" firstAttribute="leading" secondItem="586" secondAttribute="leading"/>
                             <constraint id="651" firstItem="633" firstAttribute="trailing" secondItem="641" secondAttribute="trailing" constant="18"/>
                             <constraint id="652" firstItem="641" firstAttribute="leading" secondItem="633" secondAttribute="leading" constant="18"/>
-                            <constraint id="654" firstItem="583" firstAttribute="top" secondItem="640" secondAttribute="bottom" constant="40"/>
+                            <constraint id="654" firstItem="583" firstAttribute="top" secondItem="640" secondAttribute="bottom" constant="20"/>
                             <constraint id="657" firstItem="640" firstAttribute="centerX" secondItem="633" secondAttribute="centerX"/>
                             <constraint id="663" firstItem="633" firstAttribute="trailing" secondItem="638" secondAttribute="trailing" constant="91"/>
                             <constraint id="664" firstItem="638" firstAttribute="leading" secondItem="633" secondAttribute="leading" constant="91"/>
@@ -250,7 +254,7 @@
                             <constraint id="669" firstItem="639" firstAttribute="leading" secondItem="633" secondAttribute="leading" constant="20"/>
                             <constraint id="690" firstItem="678" firstAttribute="leading" secondItem="641" secondAttribute="leading"/>
                             <constraint id="691" firstItem="641" firstAttribute="top" secondItem="678" secondAttribute="bottom" constant="8"/>
-                            <constraint id="894" firstItem="640" firstAttribute="top" secondItem="641" secondAttribute="bottom" constant="59"/>
+                            <constraint id="894" firstItem="640" firstAttribute="top" secondItem="641" secondAttribute="bottom" constant="40"/>
                             <constraint id="1014" firstItem="639" firstAttribute="top" secondItem="638" secondAttribute="bottom" constant="15"/>
                         </constraints>
                     </view>
@@ -282,7 +286,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="552"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="754" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="222" y="353" width="156" height="158"/>
+                                <rect key="frame" x="222" y="373" width="156" height="158"/>
                                 <state key="normal" backgroundImage="off.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -292,50 +296,60 @@
                                 </constraints>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="755" translatesAutoresizingMaskIntoConstraints="NO" placeholder="enter text to morse" clearButtonMode="always">
-                                <rect key="frame" x="20" y="180" width="560" height="30"/>
+                                <rect key="frame" x="20" y="219.5" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" id="756" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" text="X">
-                                <rect key="frame" x="91" y="49" width="418" height="109"/>
+                                <rect key="frame" x="91" y="34" width="418" height="61"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="MorseCode" family="Morse Code" pointSize="100"/>
                                 <nil key="highlightedColor"/>
                                 <color key="textColor" colorSpace="calibratedRGB" red="0.984313725490196" green="0.047058823529411764" blue="0.12941176470588237" alpha="1"/>
                                 <constraints>
-                                    <constraint id="789" firstItem="756" firstAttribute="height" constant="109"/>
+                                    <constraint id="789" firstItem="756" firstAttribute="height" constant="67"/>
                                 </constraints>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="764" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="16" y="264" width="568" height="31"/>
+                                <rect key="frame" x="16" y="303" width="568" height="31"/>
                                 <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 <connections>
                                     <action selector="HandleMorseSpeedChanged:" destination="707" id="801" eventType="valueChanged"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Adjust speed" lineBreakMode="tailTruncation" minimumFontSize="10" id="765" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="22" y="240.5" width="74" height="14.5"/>
+                                <rect key="frame" x="22" y="279.5" width="74" height="14.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="881">
-                                <rect key="frame" x="24" y="352.5" width="51" height="31"/>
+                                <rect key="frame" x="24" y="391.5" width="51" height="31"/>
                                 <connections>
                                     <action selector="HandleRepeatChanged:" destination="707" id="887" eventType="valueChanged"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Repeat" lineBreakMode="tailTruncation" minimumFontSize="10" id="882" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="22" y="323" width="40" height="14.5"/>
+                                <rect key="frame" x="22" y="362" width="40" height="14.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" id="1213" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" text="A">
+                                <rect key="frame" x="206.5" y="77.5" width="187" height="20.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="1248" firstItem="1213" firstAttribute="width" constant="187"/>
+                                </constraints>
+                            </label>
                         </subviews>
                         <constraints>
-                            <constraint id="774" firstItem="705" firstAttribute="top" secondItem="754" secondAttribute="bottom" constant="40"/>
+                            <constraint id="774" firstItem="705" firstAttribute="top" secondItem="754" secondAttribute="bottom" constant="20"/>
                             <constraint id="775" firstItem="754" firstAttribute="centerX" secondItem="753" secondAttribute="centerX"/>
                             <constraint id="776" firstItem="753" firstAttribute="top" secondItem="708" secondAttribute="top"/>
                             <constraint id="777" firstItem="753" firstAttribute="bottom" secondItem="705" secondAttribute="top" constant="2"/>
@@ -344,10 +358,10 @@
                             <constraint id="780" firstItem="764" firstAttribute="leading" secondItem="753" secondAttribute="leading" constant="18"/>
                             <constraint id="781" firstItem="753" firstAttribute="trailing" secondItem="764" secondAttribute="trailing" constant="18"/>
                             <constraint id="782" firstItem="764" firstAttribute="centerX" secondItem="753" secondAttribute="centerX"/>
-                            <constraint id="783" firstItem="754" firstAttribute="top" secondItem="764" secondAttribute="bottom" constant="59"/>
+                            <constraint id="783" firstItem="754" firstAttribute="top" secondItem="764" secondAttribute="bottom" constant="40"/>
                             <constraint id="784" firstItem="765" firstAttribute="leading" secondItem="764" secondAttribute="leading" constant="4"/>
                             <constraint id="785" firstItem="764" firstAttribute="top" secondItem="765" secondAttribute="bottom" constant="9"/>
-                            <constraint id="786" firstItem="756" firstAttribute="top" secondItem="704" secondAttribute="bottom" constant="29"/>
+                            <constraint id="786" firstItem="756" firstAttribute="top" secondItem="704" secondAttribute="bottom" constant="14"/>
                             <constraint id="787" firstItem="753" firstAttribute="trailing" secondItem="756" secondAttribute="trailing" constant="91"/>
                             <constraint id="788" firstItem="756" firstAttribute="leading" secondItem="753" secondAttribute="leading" constant="91"/>
                             <constraint id="791" firstItem="755" firstAttribute="centerX" secondItem="753" secondAttribute="centerX"/>
@@ -358,6 +372,8 @@
                             <constraint id="885" firstItem="881" firstAttribute="leading" secondItem="764" secondAttribute="leading" constant="6"/>
                             <constraint id="886" firstItem="881" firstAttribute="top" secondItem="882" secondAttribute="bottom" constant="15"/>
                             <constraint id="929" firstItem="765" firstAttribute="top" secondItem="755" secondAttribute="bottom" constant="30"/>
+                            <constraint id="1247" firstItem="1213" firstAttribute="top" secondItem="756" secondAttribute="centerY" constant="10" priority="517"/>
+                            <constraint id="1249" firstItem="1213" firstAttribute="centerX" secondItem="753" secondAttribute="centerX"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Morse" id="750" image="TabBarMorse"/>
@@ -368,6 +384,7 @@
                         <outlet property="txtMorse" destination="755" id="name-outlet-755"/>
                         <outlet property="lblCurrentMorseChar" destination="756" id="name-outlet-756"/>
                         <outlet property="switchRepeat" destination="881" id="name-outlet-881"/>
+                        <outlet property="lblCurrentClearTextChar" destination="1213" id="name-outlet-1213"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="709" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -400,7 +417,7 @@
         <image name="on.png" width="295" height="295"/>
         <image name="background.png" width="1511" height="706"/>
         <image name="digital.ttf" width="0" height="0"/>
-        <image name="bulb.png" width="293" height="292"/>
+        <image name="bulb.png" width="1024" height="1024"/>
         <image name="csharx.png" width="500" height="132"/>
         <image name="MorseCode.ttf" width="0" height="0"/>
         <image name="Image" width="90" height="90"/>

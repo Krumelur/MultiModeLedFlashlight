@@ -1,16 +1,19 @@
-﻿using System;
-using UIKit;
+﻿using UIKit;
 using CoreGraphics;
 
 namespace MultiModeLamp
 {
+	/// <summary>
+	/// Simulator torch. Uses a small UIView which is placed at the top left corner of the screen.
+	/// This is just there to allow development with the Simulator.
+	/// </summary>
 	public class SimulatorTorch : ITorch
 	{
 		UIView view;
 
 		public SimulatorTorch ()
 		{
-			this.view = new UIView(new CGRect(0, 0, 50, 50));
+			this.view = new UIView(new CGRect(0, 0, 1, 1));
 			var parentView = UIApplication.SharedApplication.KeyWindow.RootViewController.View;
 			parentView.Add(this.view);
 			parentView.BringSubviewToFront(this.view);

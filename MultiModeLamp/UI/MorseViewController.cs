@@ -1,6 +1,5 @@
 using Foundation;
 using System;
-using System.CodeDom.Compiler;
 using UIKit;
 using System.Threading;
 using Refractored.Xam.Settings;
@@ -8,11 +7,16 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
+using Xamarin;
 
 namespace MultiModeLamp
 {
+	/// <summary>
+	/// Allows to morse message using the torch.
+	/// </summary>
 	partial class MorseViewController : BaseViewController
 	{
+		const string SETTING_LAST_MESSAGE = "LastMorseMessage";
 		const string SETTING_MORSE_CHARS_PER_MINUTE = "MorseSpeed";
 		const int DEFAULT_CHARS_PER_MINUTE = 20;
 		const string SETTING_REPEAT_MORSE_MESSAGE = "RepeatMorse";
@@ -79,9 +83,15 @@ namespace MultiModeLamp
 			["@" ] = ". - - . - ."
 		};
 
+		/// <summary>
+		/// Checks if a given character can be translated into a morse code.
+		/// </summary>
+		/// <returns><c>true</c> if is valid morse character the specified c; otherwise, <c>false</c>.</returns>
+		/// <param name="c">C.</param>
 		static bool IsValidMorseCharacter (char c)
 		{
 			string s = c.ToString ().ToUpperInvariant ();
+			// It's either a blank or a character from the dictionary.
 			return s == " " || morseCodes.ContainsKey (s);
 		}
 
@@ -114,7 +124,6 @@ namespace MultiModeLamp
 		/// <summary>
 		/// Length of break after a DIT or DAH
 		/// </summary>
-		/// <value>The length symbol break.</value>
 		static int LengthSymbolBreak
 		{
 			get {
@@ -142,8 +151,21 @@ namespace MultiModeLamp
 			}
 		}
 
+		protected override void AppEnteredBackground ()
+		{
+			this.cts?.Cancel ();
+			base.AppEnteredBackground ();
+			this.UpdateUi (false);
+		}
+
+		/// <summary>
+		/// Updates the user interface.
+		/// </summary>
+		/// <param name="updateSlider">If set to <c>true</c> also update slider.</param>
 		void UpdateUi (bool updateSlider)
 		{
+			this.txtMorse.Text = CrossSettings.Current.GetValueOrDefault (SETTING_LAST_MESSAGE, string.Empty);
+
 			if (updateSlider)
 			{
 				this.sliderMorseSpeed.SetValue (CrossSettings.Current.GetValueOrDefault (SETTING_MORSE_CHARS_PER_MINUTE, DEFAULT_CHARS_PER_MINUTE), true);
@@ -161,6 +183,13 @@ namespace MultiModeLamp
 			}
 		}
 
+		public override void ViewDidAppear (bool animated)
+		{
+			Insights.Track ("Show morse screen");
+			base.ViewDidAppear (animated);
+			this.UpdateUi (true);
+		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
@@ -175,8 +204,17 @@ namespace MultiModeLamp
 			this.btnToggleMorse.TouchUpInside += HandleToggleMorse;
 			this.View.AddGestureRecognizer (new UITapGestureRecognizer (() => this.View.EndEditing (true)));
 		
-			// Only need one method, use weak delegate instead of subclassing UITextFieldDelegate.
+			// Don't like to to implement my own UITextFieldDelegate subclass...
 			this.txtMorse.WeakDelegate = this;
+		}
+
+		[Preserve]
+		[Export ("textFieldShouldReturn:")]
+		bool ShouldReturn (UITextField textField)
+		{
+			textField.ResignFirstResponder ();
+
+			return true;
 		}
 
 		[Preserve]
@@ -199,11 +237,19 @@ namespace MultiModeLamp
 			var nativeString = new NSString (this.txtMorse.Text);
 			this.txtMorse.Text = nativeString.Replace (range, new NSString (replacementString));
 
+			// Remember last message.
+			CrossSettings.Current.AddOrUpdateValue (SETTING_LAST_MESSAGE, this.txtMorse.Text);
+
 			// Return FALSE because we update the content ourselves (uppercasing everything).
 			return false;
 		}
 
-		async Task Morse (string text, CancellationToken token)
+		/// <summary>
+		/// Morse the specified text.
+		/// </summary>
+		/// <param name="text">Text.</param>
+		/// <param name="token">Token.</param>
+		async Task MorseAsync (string text, CancellationToken token)
 		{
 			if (string.IsNullOrWhiteSpace (text))
 			{
@@ -239,10 +285,12 @@ namespace MultiModeLamp
 					continue;
 				}
 
-				Debug.WriteLine ($"Current character: '{this.lblCurrentMorseChar.Text}' translates to '{currentMorseString}'");
-
 				// Morse representation never starts or ends with blank. Trimming is just for sanity.
 				currentMorseString = currentMorseString.Trim ();
+
+				Debug.WriteLine ($"Current character: '{this.lblCurrentMorseChar.Text}' translates to '{currentMorseString}'");
+
+				this.lblCurrentClearTextChar.Text = currentChar;
 
 				// Loop the morse representation characters and turn light on or of accordingly.
 				for (int morseIndex = 0; morseIndex < currentMorseString.Length; morseIndex++)
@@ -291,27 +339,45 @@ namespace MultiModeLamp
 					await Task.Delay (LengthCharBreak, token);
 				}
 			}	
+
+			this.lblCurrentClearTextChar.Text = string.Empty;
 		}
 
+		/// <summary>
+		/// Gets called if the button to switch on the torch has been clicked.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">E.</param>
 		async void HandleToggleMorse (object sender, EventArgs e)
 		{
 			if (this.cts != null)
 			{
+				Insights.Track ("Stopping morsing");
+				// Cancel any currently ongoing morsing.
 				this.cts.Cancel ();
 			}
 			else
 			{
+				if (string.IsNullOrWhiteSpace (this.txtMorse.Text))
+				{
+					return;
+				}
+
+				Insights.Track ("Starting morsing");
+
+				// Morse the message.
 				this.cts = new CancellationTokenSource ();
 				this.UpdateUi (updateSlider: true);
 				this.txtMorse.Enabled = false;
 				this.txtMorse.ResignFirstResponder ();
 				try
 				{
-					while(this.switchRepeat.On)
+					do
 					{
-						await this.Morse (this.txtMorse.Text, this.cts.Token);
+						await this.MorseAsync (this.txtMorse.Text, this.cts.Token);
 						await Task.Delay(LengthWordBreak, this.cts.Token);
 					}
+					while(this.switchRepeat.On);
 				}
 				catch (OperationCanceledException)
 				{
@@ -321,7 +387,6 @@ namespace MultiModeLamp
 				this.cts = null;
 				this.UpdateUi (updateSlider: true);
 			}
-
 		}
 
 
