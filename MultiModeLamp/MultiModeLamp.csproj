@@ -9,7 +9,6 @@
     <RootNamespace>MultiModeLamp</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>MultiModeLamp</AssemblyName>
-    <XamarinInsightsApiKey>2dd89a9da6222a1d668014a8f5285a5e2adc36ee</XamarinInsightsApiKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,6 +60,8 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchUseLlvm>true</MtouchUseLlvm>
+    <MtouchUseThumb>true</MtouchUseThumb>
+    <MtouchFloat32>true</MtouchFloat32>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -84,8 +85,13 @@
     <ConsolePause>False</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>Automatic:AppStore</CodesignProvision>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>10a5b18b-d662-444e-9a33-6ca6c69c43c5</CodesignProvision>
+    <CodesignKey>iPhone Distribution: Rene Ruppert (8P293438UX)</CodesignKey>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <MtouchUseThumb>true</MtouchUseThumb>
+    <MtouchFloat32>true</MtouchFloat32>
+    <IpaPackageName>
+    </IpaPackageName>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -115,6 +121,7 @@
     <Compile Include="UI\StrobeViewController.designer.cs">
       <DependentUpon>StrobeViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="InsightsApiKey.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
@@ -123,11 +130,6 @@
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-40%403x.png" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-60%402x.png" />
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-60%403x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-76.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-76%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small%402x.png" />
-    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small%403x.png" />
     <ImageAsset Include="Resources\Images.xcassets\TabBarLamp.imageset\Contents.json" />
     <ImageAsset Include="Resources\Images.xcassets\TabBarStrobe.imageset\Contents.json" />
     <ImageAsset Include="Resources\Images.xcassets\TabBarMorse.imageset\Contents.json" />
@@ -163,12 +165,12 @@
   <ItemGroup>
     <BundleResource Include="Resources\off.png" />
     <BundleResource Include="Resources\on.png" />
-    <BundleResource Include="Resources\background.png" />
     <BundleResource Include="Resources\digital.ttf" />
     <BundleResource Include="Resources\bulb.png" />
     <BundleResource Include="Resources\csharx.png" />
     <BundleResource Include="Resources\MorseCode.ttf" />
     <BundleResource Include="Resources\about.html" />
+    <BundleResource Include="Resources\background.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images.xcassets\AppIcons.appiconset\" />

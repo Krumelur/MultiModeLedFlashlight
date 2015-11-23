@@ -37,7 +37,7 @@
 	<key>XSAppIconAssets</key>
 	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
 	<key>CFBundleIdentifier</key>
-	<string>net.csharx.multimodelamp</string>
+	<string>com.krumelur.multimodelampe</string>
 	<key>CFBundleShortVersionString</key>
 	<string>2.0.0</string>
 	<key>CFBundleVersion</key>

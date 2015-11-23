@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedWhite" white="0" alpha="1"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="449" translatesAutoresizingMaskIntoConstraints="NO" image="background.png" alpha="0.65">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="449" translatesAutoresizingMaskIntoConstraints="NO" image="background.jpg" alpha="0.65">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="417" translatesAutoresizingMaskIntoConstraints="NO">
@@ -192,7 +192,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="633" translatesAutoresizingMaskIntoConstraints="NO" image="background.png">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="633" translatesAutoresizingMaskIntoConstraints="NO" image="background.jpg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" id="638" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" text="100">
@@ -282,7 +282,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="753" translatesAutoresizingMaskIntoConstraints="NO" image="background.png">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="753" translatesAutoresizingMaskIntoConstraints="NO" image="background.jpg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="552"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="754" translatesAutoresizingMaskIntoConstraints="NO">
@@ -415,7 +415,7 @@
         <image name="lamp_off.png" width="1511" height="706"/>
         <image name="off.png" width="300" height="300"/>
         <image name="on.png" width="295" height="295"/>
-        <image name="background.png" width="1511" height="706"/>
+        <image name="background.jpg" width="1511" height="706"/>
         <image name="digital.ttf" width="0" height="0"/>
         <image name="bulb.png" width="1024" height="1024"/>
         <image name="csharx.png" width="500" height="132"/>
