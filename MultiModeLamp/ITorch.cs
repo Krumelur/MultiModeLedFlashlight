@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MultiModeLamp
+﻿namespace MultiModeLamp
 {
 	/// <summary>
 	/// Interface to abstract flash usage. 
