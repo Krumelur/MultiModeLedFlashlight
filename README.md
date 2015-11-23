@@ -4,11 +4,11 @@ MultiMode LED was first built by me in 2010 when I started developing for the iP
 The original version used ObjectiveC and evetually found its way into the Apple App Store.
 Five years later it is time to convert the puppy over to C# - using Xamarin.iOS - and also to make the source available.
 
-![Screenshot](https://raw.githubusercontent.com/Krumelur/MultiModeLedFlashlight/master/screenie1.jpg „Morse“)
+![Screenshot](https://raw.githubusercontent.com/Krumelur/MultiModeLedFlashlight/master/screenie1.jpg)
 
-![Screenshot](https://raw.githubusercontent.com/Krumelur/MultiModeLedFlashlight/master/screenie2.jpg „Strobe“)
+![Screenshot](https://raw.githubusercontent.com/Krumelur/MultiModeLedFlashlight/master/screenie2.jpg)
 
-![Screenshot](https://raw.githubusercontent.com/Krumelur/MultiModeLedFlashlight/master/screenie3.jpg „LED“)
+![Screenshot](https://raw.githubusercontent.com/Krumelur/MultiModeLedFlashlight/master/screenie3.jpg)
 
 
 The app features:
