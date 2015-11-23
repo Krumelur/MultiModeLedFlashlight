@@ -4,6 +4,8 @@ MultiMode LED was first built by me in 2010 when I started developing for the iP
 The original version used ObjectiveC and evetually found its way into the Apple App Store.
 Five years later it is time to convert the puppy over to C# - using Xamarin.iOS - and also to make the source available.
 
+![Screenshot](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png „Logo Title Text 1“)
+
 The app features:
 
 * Usage as a flashlight (adjustable brightness)
