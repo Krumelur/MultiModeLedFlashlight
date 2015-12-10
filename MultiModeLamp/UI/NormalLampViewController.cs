@@ -20,9 +20,9 @@
 using Foundation;
 using System;
 using UIKit;
-using Refractored.Xam.Settings;
 using System.Threading.Tasks;
 using Xamarin;
+using Plugin.Settings;
 
 namespace MultiModeLamp
 {
@@ -228,7 +228,5 @@ namespace MultiModeLamp
 			}
 			this.lblLevel.Text = $"{roundedLevel}%";
 		}
-
-
 	}
 }

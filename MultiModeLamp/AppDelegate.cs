@@ -40,6 +40,12 @@ namespace MultiModeLamp
 					Insights.PurgePendingCrashReports ().Wait ();
 				}
 			};
+
+			// This is used to enable remote controlling the app, both for local UI Tests and also for use in TestCloud.
+			// Never include this into a release build!
+			#if ENABLE_TEST_CLOUD
+			Calabash.Start();
+			#endif
 			return true;
 		}
 	}

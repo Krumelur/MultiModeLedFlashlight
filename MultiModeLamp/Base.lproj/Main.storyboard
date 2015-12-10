@@ -53,6 +53,9 @@
                                     <constraint id="560" firstItem="417" firstAttribute="width" constant="156"/>
                                     <constraint id="561" firstItem="417" firstAttribute="height" constant="158"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="accessibilityIdentifier" type="string" value="ButtonToggleLamp"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="475" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="16" y="299" width="568" height="35"/>
@@ -67,6 +70,9 @@
                                 <constraints>
                                     <constraint id="812" firstItem="475" firstAttribute="height" constant="34"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="accessibilityIdentifier" type="string" value="SliderBrightness"/>
+                                </userDefinedRuntimeAttributes>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Brightness" lineBreakMode="tailTruncation" minimumFontSize="10" id="682" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="22" y="276.5" width="61" height="14.5"/>
@@ -84,6 +90,9 @@
                                 <connections>
                                     <segue id="1147" destination="1040" kind="show"/>
                                 </connections>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="accessibilityIdentifier" type="string" value="ButtonShowAbout"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="80%" lineBreakMode="tailTruncation" minimumFontSize="10" id="1015" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center">
                                 <rect key="frame" x="40" y="49" width="520" height="73"/>
@@ -91,6 +100,9 @@
                                 <fontDescription key="fontDescription" name="Digitaldream" family="Digital dream" pointSize="70"/>
                                 <color key="textColor" colorSpace="calibratedRGB" red="1" green="0" blue="0" alpha="1"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="accessibilityIdentifier" type="string" value="LabelBrightness"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <constraints>
@@ -112,7 +124,12 @@
                             <constraint id="1018" firstItem="449" firstAttribute="trailing" secondItem="1015" secondAttribute="trailing" constant="40"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Normal Lamp" id="414" image="TabBarLamp"/>
+                    <tabBarItem key="tabBarItem" title="Normal Lamp" id="414" image="TabBarLamp">
+                        <accessibilityConfiguration key="accessibilityConfiguration">
+                            <isElement key="isElement" value="YES"/>
+                        </accessibilityConfiguration>
+                        <userDefinedRuntimeAttribute key="userDefinedRuntimeAttribute" accessibilityIdentifier="TabBarItemNormalLamp"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
@@ -172,6 +189,10 @@
                                 <segue id="1152" destination="806" kind="unwind" unwindAction="UnwindToNormalLampViewController:"/>
                             </connections>
                             <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <accessibilityConfiguration key="accessibilityConfiguration">
+                                <isElement key="isElement" value="YES"/>
+                            </accessibilityConfiguration>
+                            <userDefinedRuntimeAttribute key="userDefinedRuntimeAttribute" accessibilityIdentifier="ButtonDone"/>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
@@ -195,12 +216,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="633" translatesAutoresizingMaskIntoConstraints="NO" image="background.jpg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" id="638" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" text="100">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" id="638" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" text="100" misplaced="YES">
                                 <rect key="frame" x="91" y="49" width="418" height="107"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Digitaldream" family="Digital dream" pointSize="70"/>
                                 <color key="textColor" colorSpace="calibratedRGB" red="0.984313725490196" green="0.047058823529411764" blue="0.12941176470588237" alpha="1"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="accessibilityIdentifier" type="string" value="LabelFlashesPerSecond"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="flashes per second" lineBreakMode="tailTruncation" minimumFontSize="10" id="639" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center">
                                 <rect key="frame" x="20" y="137" width="560" height="20.5"/>
@@ -219,6 +243,9 @@
                                     <constraint id="655" firstItem="640" firstAttribute="width" constant="156"/>
                                     <constraint id="656" firstItem="640" firstAttribute="height" constant="158"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="accessibilityIdentifier" type="string" value="ButtonToggleStrobe"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="641" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="16" y="302" width="568" height="32"/>
@@ -229,6 +256,9 @@
                                 <constraints>
                                     <constraint id="653" firstItem="641" firstAttribute="height" constant="31"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="accessibilityIdentifier" type="string" value="SliderSpeed"/>
+                                </userDefinedRuntimeAttributes>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Adjust speed" lineBreakMode="tailTruncation" minimumFontSize="10" id="678" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="18" y="279.5" width="74" height="14.5"/>
@@ -258,7 +288,12 @@
                             <constraint id="1014" firstItem="639" firstAttribute="top" secondItem="638" secondAttribute="bottom" constant="15"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Strobe" id="630" image="TabBarStrobe"/>
+                    <tabBarItem key="tabBarItem" title="Strobe" id="630" image="TabBarStrobe">
+                        <accessibilityConfiguration key="accessibilityConfiguration">
+                            <isElement key="isElement" value="YES"/>
+                        </accessibilityConfiguration>
+                        <userDefinedRuntimeAttribute key="userDefinedRuntimeAttribute" accessibilityIdentifier="TabBarItemFlashes"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="btnToggleStrobe" destination="640" id="name-outlet-640"/>
@@ -294,13 +329,19 @@
                                     <constraint id="771" firstItem="754" firstAttribute="width" constant="156"/>
                                     <constraint id="772" firstItem="754" firstAttribute="height" constant="158"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="accessibilityIdentifier" type="string" value="ButtonToggleMorse"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="755" translatesAutoresizingMaskIntoConstraints="NO" placeholder="enter text to morse" clearButtonMode="always">
                                 <rect key="frame" x="20" y="219.5" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="accessibilityIdentifier" type="string" value="TextMorse"/>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" id="756" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" text="X">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" id="756" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" text="X" misplaced="YES">
                                 <rect key="frame" x="91" y="34" width="418" height="61"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="MorseCode" family="Morse Code" pointSize="100"/>
@@ -309,6 +350,9 @@
                                 <constraints>
                                     <constraint id="789" firstItem="756" firstAttribute="height" constant="67"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="accessibilityIdentifier" type="string" value="TextCurrentMorseCharacter"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="764" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="16" y="303" width="568" height="31"/>
@@ -316,6 +360,9 @@
                                 <connections>
                                     <action selector="HandleMorseSpeedChanged:" destination="707" id="801" eventType="valueChanged"/>
                                 </connections>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="accessibilityIdentifier" type="string" value="SliderSpeed"/>
+                                </userDefinedRuntimeAttributes>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Adjust speed" lineBreakMode="tailTruncation" minimumFontSize="10" id="765" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="22" y="279.5" width="74" height="14.5"/>
@@ -329,6 +376,9 @@
                                 <connections>
                                     <action selector="HandleRepeatChanged:" destination="707" id="887" eventType="valueChanged"/>
                                 </connections>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="accessibilityIdentifier" type="string" value="SwitchRepeatMorse"/>
+                                </userDefinedRuntimeAttributes>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Repeat" lineBreakMode="tailTruncation" minimumFontSize="10" id="882" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="22" y="362" width="40" height="14.5"/>
@@ -376,7 +426,12 @@
                             <constraint id="1249" firstItem="1213" firstAttribute="centerX" secondItem="753" secondAttribute="centerX"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Morse" id="750" image="TabBarMorse"/>
+                    <tabBarItem key="tabBarItem" title="Morse" id="750" image="TabBarMorse">
+                        <accessibilityConfiguration key="accessibilityConfiguration">
+                            <isElement key="isElement" value="YES"/>
+                        </accessibilityConfiguration>
+                        <userDefinedRuntimeAttribute key="userDefinedRuntimeAttribute" accessibilityIdentifier="TabBarItemMorse"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="btnToggleMorse" destination="754" id="name-outlet-754"/>

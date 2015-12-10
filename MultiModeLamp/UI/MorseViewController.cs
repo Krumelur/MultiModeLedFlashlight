@@ -21,12 +21,12 @@ using Foundation;
 using System;
 using UIKit;
 using System.Threading;
-using Refractored.Xam.Settings;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
 using Xamarin;
+using Plugin.Settings;
 
 namespace MultiModeLamp
 {

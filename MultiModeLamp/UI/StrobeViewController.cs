@@ -19,10 +19,10 @@
 
 using System;
 using UIKit;
-using Refractored.Xam.Settings;
 using System.Threading.Tasks;
 using System.Threading;
 using Xamarin;
+using Plugin.Settings;
 
 namespace MultiModeLamp
 {

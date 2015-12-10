@@ -15,13 +15,15 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
-    <DefineConstants>DEBUG; SIMULATOR</DefineConstants>
+    <DefineConstants>DEBUG; SIMULATOR; ENABLE_TEST_CLOUD</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>i386</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -33,13 +35,15 @@
     <MtouchArch>i386</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <DefineConstants>SIMULATOR</DefineConstants>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhone\Debug</OutputPath>
-    <DefineConstants>DEBUG</DefineConstants>
+    <DefineConstants>DEBUG; ENABLE_TEST_CLOUD</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -48,6 +52,8 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchFastDev>true</MtouchFastDev>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -62,6 +68,8 @@
     <MtouchUseLlvm>true</MtouchUseLlvm>
     <MtouchUseThumb>true</MtouchUseThumb>
     <MtouchFloat32>true</MtouchFloat32>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -75,6 +83,8 @@
     <BuildIpa>True</BuildIpa>
     <CodesignProvision>Automatic:AdHoc</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>none</DebugType>
@@ -92,6 +102,8 @@
     <MtouchFloat32>true</MtouchFloat32>
     <IpaPackageName>
     </IpaPackageName>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -122,6 +134,7 @@
       <DependentUpon>StrobeViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="InsightsApiKey.cs" />
+    <None Include="PluginsHelp\SettingsReadme.txt" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
@@ -144,17 +157,24 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="Refractored.Xam.Settings">
-      <HintPath>packages\Xam.Plugins.Settings.1.5.2\lib\Xamarin.iOS10\Refractored.Xam.Settings.dll</HintPath>
+    <Reference Include="Plugin.Settings">
+      <HintPath>..\packages\Xam.Plugins.Settings.2.0.0\lib\Xamarin.iOS10\Plugin.Settings.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="Refractored.Xam.Settings.Abstractions">
-      <HintPath>packages\Xam.Plugins.Settings.1.5.2\lib\Xamarin.iOS10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
+    <Reference Include="Plugin.Settings.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Settings.2.0.0\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Xamarin.Insights">
-      <HintPath>packages\Xamarin.Insights.1.11.2\lib\Xamarin.iOS10\Xamarin.Insights.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Insights.1.11.2\lib\Xamarin.iOS10\Xamarin.Insights.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="PLCrashReporterUnifiedBinding">
-      <HintPath>packages\Xamarin.Insights.1.11.2\lib\Xamarin.iOS10\PLCrashReporterUnifiedBinding.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Insights.1.11.2\lib\Xamarin.iOS10\PLCrashReporterUnifiedBinding.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Calabash">
+      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.17.0\lib\Xamarin.iOS10\Calabash.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +182,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="packages\Xamarin.Insights.1.11.2\build\Xamarin.iOS10\Xamarin.Insights.targets" Condition="Exists('packages\Xamarin.Insights.1.11.2\build\Xamarin.iOS10\Xamarin.Insights.targets')" />
+  <Import Project="..\packages\Xamarin.Insights.1.11.2\build\Xamarin.iOS10\Xamarin.Insights.targets" Condition="Exists('..\packages\Xamarin.Insights.1.11.2\build\Xamarin.iOS10\Xamarin.Insights.targets')" />
   <ItemGroup>
     <BundleResource Include="Resources\off.png" />
     <BundleResource Include="Resources\on.png" />
