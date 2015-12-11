@@ -23,6 +23,7 @@ using UIKit;
 using System.Threading.Tasks;
 using Xamarin;
 using Plugin.Settings;
+using System.Diagnostics;
 
 namespace MultiModeLamp
 {
@@ -221,6 +222,7 @@ namespace MultiModeLamp
 		/// <param name="level">Level.</param>
 		void UpdateBrightnesLevelText (float level)
 		{
+			Debug.WriteLine($"Setting brightness to {level}");
 			int roundedLevel = ((int)(Math.Round (level * 10) * 10));
 			if (roundedLevel < 10)
 			{
