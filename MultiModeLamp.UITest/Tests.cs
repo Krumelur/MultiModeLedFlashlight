@@ -37,12 +37,15 @@ namespace MultiModeLamp.UITest
 		}
 
 		[Test]
-		public void AppLaunches ()
+		[Explicit]
+		public void RunRepl()
 		{
-//			app.Repl();
-//			return;
+			app.Repl ();
+		}
 
-
+		[Test]
+		public void ClickThroughAllScreens_Succeeds ()
+		{
 			// Show strobe light screen.
 			app.Tap(x => x.Marked("Strobe"));
 			// Info: app.Screenshot() returns a FileInfo object - so we could copy our screenshots somewhere! Sweet!
